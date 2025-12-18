@@ -31,14 +31,8 @@ export default defineConfig({
         },
       },
     },
-    // Optimize build
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
+    // Use the default esbuild minifier so we don't need an extra "terser" dependency
+    // This avoids Vercel build failures when "terser" is not installed.
     // Increase chunk size warning limit
     chunkSizeWarningLimit: 1000,
     // Source maps for production debugging
